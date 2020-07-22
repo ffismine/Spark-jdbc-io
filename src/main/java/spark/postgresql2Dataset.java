@@ -4,7 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-import spark.utils.url_format;
+import spark.utils.UrlFormat2;
 
 
 public class postgresql2Dataset {
@@ -27,7 +27,7 @@ public class postgresql2Dataset {
 //        );
 
 
-        Dataset<Row> dataset1 = spark.read().format("jdbc").options(url_format.postgresql_()).load();
+        Dataset<Row> dataset1 = spark.read().format("jdbc").options(UrlFormat2.getUrl().postgresql_()).load();
         dataset1.show();
     }
 

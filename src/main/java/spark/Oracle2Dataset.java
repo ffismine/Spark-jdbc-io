@@ -4,7 +4,8 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-import spark.utils.url_format;
+import spark.utils.UrlFormat2;
+import spark.utils.UrlFormat1;
 
 
 public class Oracle2Dataset {
@@ -28,7 +29,7 @@ public class Oracle2Dataset {
 //                        salary number(10)
 //                );
 
-        Dataset<Row> dataset = spark.read().format("jdbc").options(url_format.oracle_()).load();
+        Dataset<Row> dataset = spark.read().format("jdbc").options(UrlFormat2.getUrl().oracle_()).load();
         dataset.show();
     }
 }

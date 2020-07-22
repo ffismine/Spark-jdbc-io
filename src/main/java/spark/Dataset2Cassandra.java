@@ -6,7 +6,7 @@ import org.apache.spark.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import spark.utils.schema;
-import spark.utils.url_format;
+import spark.utils.UrlFormat2;
 
 
 public class Dataset2Cassandra {
@@ -26,7 +26,7 @@ public class Dataset2Cassandra {
         for (String field : dataset.schema().fieldNames()) {
             dataset = dataset.withColumnRenamed(field,field.toLowerCase());
         }
-        dataset.write().mode(SaveMode.Append).format("org.apache.spark.sql.cassandra").options(url_format.cassandra_()).save();
+        dataset.write().mode(SaveMode.Append).format("org.apache.spark.sql.cassandra").options(UrlFormat2.getUrl().cassandra_()).save();
     }
 
 }

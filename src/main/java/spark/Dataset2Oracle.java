@@ -4,7 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.sql.*;
 
 import spark.utils.schema;
-import spark.utils.url_format;
+import spark.utils.UrlFormat2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +25,6 @@ public class Dataset2Oracle {
                 .getOrCreate();
 
         Dataset<Row> dataset = spark.createDataset(list, schema.ENC);
-        dataset.write().mode(SaveMode.Append).format("jdbc").options(url_format.oracle_()).save();
+        dataset.write().mode(SaveMode.Append).format("jdbc").options(UrlFormat2.getUrl().oracle_()).save();
     }
 }

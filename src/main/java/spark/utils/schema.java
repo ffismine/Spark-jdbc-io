@@ -16,7 +16,7 @@ public class schema {
     public static final Encoder<Row> ENC = RowEncoder.apply(SCHEMA);
 
     private static StructType FIELD_SCHEMA() {
-        List<StructField> fields = new ArrayList<>();
+        List<StructField> fields = new ArrayList<StructField>();
 
         fields.add(DataTypes.createStructField("id", DataTypes.IntegerType, true));
         fields.add(DataTypes.createStructField("name", DataTypes.StringType, true));

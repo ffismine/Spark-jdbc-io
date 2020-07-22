@@ -3,11 +3,15 @@ package spark.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class url_format{
+// 两种单例模式之一：枚举
 
-    public static Map<String, String> mysql_(){
 
-        Map<String, String> optionMap = new HashMap<>();
+public enum UrlFormat1 {
+    urlFormat;
+
+    public Map<String, String> mysql_(){
+
+        Map<String, String> optionMap = new HashMap<String, String>();
         // TODO: your Connection string with pw
         optionMap.put("url","jdbc:mysql://xx.xx.xx.xx:3306/xx?userSSl=false&user=xx&password=xx");
         optionMap.put("driver", "com.mysql.jdbc.Driver");
@@ -16,9 +20,9 @@ public class url_format{
         return optionMap;
     }
 
-    public static Map<String, String> cassandra_(){
+    public Map<String, String> cassandra_(){
 
-        Map<String, String> optionMap = new HashMap<>();
+        Map<String, String> optionMap = new HashMap<String, String>();
         // TODO: your keyspace
         optionMap.put("keyspace","your keyspace");
         // TODO: your table
@@ -30,8 +34,8 @@ public class url_format{
         return optionMap;
     }
 
-    public static Map<String, String> postgresql_(){
-        Map<String, String> optionMap = new HashMap<>();
+    public Map<String, String> postgresql_(){
+        Map<String, String> optionMap = new HashMap<String, String>();
         // TODO your Connection string
         optionMap.put("url","jdbc:postgresql://xx.xx.xx.xx:5432/xx?userSSl=false&user=xx&password=xx");
         optionMap.put("driver", "org.postgresql.Driver");
@@ -42,8 +46,8 @@ public class url_format{
         return optionMap;
     }
 
-    public static Map<String, String> oracle_(){
-        Map<String, String> optionMap = new HashMap<>();
+    public Map<String, String> oracle_(){
+        Map<String, String> optionMap = new HashMap<String, String>();
         // 注意 host:port:sid
         // TODO: your Connection string
         optionMap.put("url", "jdbc:oracle:thin://xx:x@xx.xx.xx.xx:1521/xx");
@@ -56,4 +60,12 @@ public class url_format{
         return optionMap;
     }
 
+    public static void main(String[] args) {
+
+    }
+
 }
+
+
+
+

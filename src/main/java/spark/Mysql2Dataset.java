@@ -4,7 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-import spark.utils.url_format;
+import spark.utils.UrlFormat2;
 
 import java.util.Properties;
 
@@ -61,7 +61,7 @@ public class Mysql2Dataset {
 
 
         //第二种方式
-        Dataset<Row> dataset1 = spark.read().format("jdbc").options(url_format.mysql_()).load();
+        Dataset<Row> dataset1 = spark.read().format("jdbc").options(UrlFormat2.getUrl().mysql_()).load();
         dataset1.show();
     }
 

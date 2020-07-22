@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import spark.utils.schema;
-import spark.utils.url_format;
+import spark.utils.UrlFormat2;
 
 public class Dataset2Mysql {
 
@@ -25,7 +25,7 @@ public class Dataset2Mysql {
                 .getOrCreate();
 
         Dataset<Row> dataset = spark.createDataset(list, schema.ENC);
-        dataset.write().mode(SaveMode.Append).format("jdbc").options(url_format.mysql_()).save();
+        dataset.write().mode(SaveMode.Append).format("jdbc").options(UrlFormat2.getUrl().mysql_()).save();
 
 
 //        another method
